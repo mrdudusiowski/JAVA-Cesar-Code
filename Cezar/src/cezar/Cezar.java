@@ -7,6 +7,8 @@ import java.util.Scanner;
  *
  * @author Patryk Duduś›
  */
+
+
 public class Cezar {
 
     static Scanner in = new Scanner(System.in);
@@ -16,22 +18,28 @@ public class Cezar {
 
     public static void main(String[] args) {
         System.out.println("Podaj zdanie do zakodowania: ");
-        word = GetWord();
+        word = getWord();
 
         System.out.println("Podaj klucz: ");
-        key = GetKey() % alphabet.length();
+        key = getKey() % alphabet.length();
 
         //  System.out.println("Tekst po zakodowaniu: ");
         //  System.out.println(CodeWord(word, key));
         // System.out.println("Tekst po odkodowaniu: ");
         //  System.out.println(DecodeWord(word, key));
         System.out.println(codeWord(word, key));
+
+        //
+        Cipher test = new Cipher(Alphabet.Normal,2);
+     //   test.setKey(2);
+        System.out.println(test.encrypt("abc"));
+        System.out.println(test.decrypt("bcd"));
     }
 
     /*
     
      */
-    public static String GetWord() {
+    public static String getWord() {
         do {
             word = in.nextLine();
             if (word.matches("[A-Za-z!?\\s]{1,}")) {
@@ -46,7 +54,7 @@ public class Cezar {
     /*
     
      */
-    public static int GetKey() {
+    public static int getKey() {
         key = 0;
         try {
             key = in.nextInt();
@@ -59,7 +67,7 @@ public class Cezar {
     /*
     
      */
-    public static String CodeWord(String word, int key) {
+    public static String codeWord2(String word, int key) {
         String code = "";
 
         for (int i = 0; i < word.length(); i++) {
@@ -85,7 +93,7 @@ public class Cezar {
     /*
     
      */
-    public static String DecodeWord(String word, int key) {
+    public static String decodeWord2(String word, int key) {
         String decode = "";
 
         for (int i = 0; i < word.length(); i++) {
@@ -111,7 +119,7 @@ public class Cezar {
     
      */
     public static StringBuilder codeWord(String word, int key) {
-        StringBuilder s= new StringBuilder();
+        StringBuilder s = new StringBuilder();
         int alphabetLength = alphabet.length();
 
         for (int i = 0; i < word.length(); i++) {
