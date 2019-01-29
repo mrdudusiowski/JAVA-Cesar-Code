@@ -7,8 +7,6 @@ import java.util.Scanner;
  *
  * @author Patryk Duduś›
  */
-
-
 public class Cezar {
 
     static Scanner in = new Scanner(System.in);
@@ -17,23 +15,24 @@ public class Cezar {
     static String alphabet = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpRrSsTtUuWwYyZz?! ";
 
     public static void main(String[] args) {
-        System.out.println("Podaj zdanie do zakodowania: ");
-        word = getWord();
+        //System.out.println("Podaj zdanie do zakodowania: ");
+        //word = getWord();
 
-        System.out.println("Podaj klucz: ");
-        key = getKey() % alphabet.length();
+       // System.out.println("Podaj klucz: ");
+       // key = getKey() % alphabet.length();
 
         //  System.out.println("Tekst po zakodowaniu: ");
         //  System.out.println(CodeWord(word, key));
         // System.out.println("Tekst po odkodowaniu: ");
-        //  System.out.println(DecodeWord(word, key));
-        System.out.println(codeWord(word, key));
+    //  System.out.println(DecodeWord(word, key));
+    // System.out.println(codeWord(word, key));
 
-        //
-        Cipher test = new Cipher(Alphabet.Normal,2);
-     //   test.setKey(2);
-        System.out.println(test.encrypt("abc"));
-        System.out.println(test.decrypt("bcd"));
+       Cipher test = new Cipher(new CesarCharProc(Alphabet.Normal, 1));
+       System.out.println(test.encrypt("ABC"));
+    // Cipher test = new Cipher(Alphabet.Normal, 2);
+    //   test.setKey(2);
+    //    System.out.println(test.encrypt("abc"));
+    //    System.out.println(test.decrypt("bcd"));
     }
 
     /*
